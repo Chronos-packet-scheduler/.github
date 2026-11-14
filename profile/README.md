@@ -9,7 +9,7 @@ Chronos acts as a kernel-level Smart L4 Gateway (Load Balancer, Firewall, and Qo
 
 * **[`intent-engine`](https://github.com/chronos-packet-scheduler/intent-engine)** — Intent Plane & Human-in-the-Loop UI; translates natural language into validated DSL instructions.
 * **[`control-plane`](https://github.com/chronos-packet-scheduler/control-plane)** — Central Source of Truth; telemetry subscriptions, and state synchronization.
-* **[`data-plane`](https://github.com/chronos-packet-scheduler/data-plane)** — Node-level eBPF/XDP & `tc` agents executing CID-based routing, packet filtering, and traffic pacing inside the Linux kernel.
+* **[`data-plane`](https://github.com/chronos-packet-scheduler/data-plane)** — Node-level eBPF/XDP agents executing CID-based routing, packet filtering, and traffic pacing inside the Linux kernel.
 * **[`documentation`](https://github.com/chronos-packet-scheduler/documentation)** — Architecture specs, DSL schemas, and research notes.
 
 ## License
