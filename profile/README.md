@@ -1,4 +1,4 @@
-# Chronos - packet scheduler
+# Chronos
 
 An Intent-Based Networking (IBN) system and adaptive L4 packet scheduler tailored for encrypted QUIC traffic streams in Kubernetes, powered by **eBPF/XDP**
 ## Overview
