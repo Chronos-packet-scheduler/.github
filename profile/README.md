@@ -21,4 +21,4 @@ Every service is published to `ghcr.io/chronos-packet-scheduler/<repo>`. To run 
 
 ## License
 
-MIT
+Apache 2.0
