@@ -8,12 +8,21 @@ Chronos acts as a kernel-level Smart L4 Gateway (Load Balancer, Firewall, and Qo
 
 ## Organization Structure
 
-* **[`intent-engine-backend`](https://github.com/chronos-packet-scheduler/intent-engine-backend)** - Intent Plane (Python); translates natural language into validated DSL instructions.
-* **[`intent-engine-frontend`](https://github.com/chronos-packet-scheduler/intent-engine-frontend)** - Human-in-the-Loop operator UI (Next.js).
-* **[`control-plane`](https://github.com/chronos-packet-scheduler/control-plane)** - Central Source of Truth (Go); telemetry subscriptions, and state synchronization.
-* **[`data-plane`](https://github.com/chronos-packet-scheduler/data-plane)** - Node-level eBPF/XDP programs (C) and agent (Rust) executing CID-based routing, packet filtering, and traffic pacing inside the Linux kernel.
+* **[`intent-engine-backend`](https://github.com/chronos-packet-scheduler/intent-engine-backend)** - Intent Plane; translates natural language into validated DSL instructions.
+* **[`intent-engine-frontend`](https://github.com/chronos-packet-scheduler/intent-engine-frontend)** - Human-in-the-Loop operator UI.
+* **[`control-plane`](https://github.com/chronos-packet-scheduler/control-plane)** - Central Source of Truth; telemetry subscriptions, and state synchronization.
+* **[`data-plane`](https://github.com/chronos-packet-scheduler/data-plane)** - Node-level eBPF/XDP programs and agent executing CID-based routing, packet filtering, and traffic pacing inside the Linux kernel. 
 * **[`deploy`](https://github.com/chronos-packet-scheduler/deploy)** - Docker Compose and Kubernetes manifests to run the whole system.
 * **[`documentation`](https://github.com/chronos-packet-scheduler/documentation)** - Architecture specs, DSL schemas, and research notes.
+
+## Technologies
+
+| Repository | Language |
+| --- | --- |
+| data-plane | Rust/C |
+| control-plane | Golang |
+| intent-engine-frontend | Typescript |
+| intent-engine-backend | Python |
 
 ## Quickstart
 
