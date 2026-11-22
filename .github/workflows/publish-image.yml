@@ -1,5 +1,6 @@
 # Reusable workflow: builds the repo's Dockerfile and pushes it to ghcr.io/<org>/<repo>.
-# Pull requests build only; pushes to the default branch and v* tags also push.
+# Pull requests build only; pushes to the default branch and v* tags also push,
+# then prune untagged versions (e.g. the image `latest` pointed to before).
 #
 # Usage:
 #
@@ -26,6 +27,10 @@ on:
         description: Comma-separated target platforms
         type: string
         default: linux/amd64,linux/arm64
+      cleanup:
+        description: Delete untagged image versions from GHCR after pushing
+        type: boolean
+        default: true
 
 permissions:
   contents: read
@@ -67,3 +72,12 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+      # Each push moves `latest` (and the branch tag) to the new image, leaving the
+      # previous one untagged. Remove those untagged versions. This action is
+      - uses: dataaxiom/ghcr-cleanup-action@v1
+        if: github.event_name != 'pull_request' && inputs.cleanup
+        with:
+          package: ${{ github.event.repository.name }}
+          delete-untagged: true
+          delete-ghost-images: true
+          delete-partial-images: true
